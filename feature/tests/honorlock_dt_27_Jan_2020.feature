@@ -1,5 +1,5 @@
 # Created by rapid at 1/27/2020
-Feature: User enter wrong login and password and system rejects
+Feature: System rejects wrong login and password
 
   Scenario: User enter wrong login and password and system rejects
     Given Loginpage
