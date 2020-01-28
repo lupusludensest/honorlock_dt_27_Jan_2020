@@ -1,17 +1,14 @@
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import ElementClickInterceptedException
-from selenium.webdriver.support import expected_conditions as EC
 from behave import given, when, then
 
-@given("I am on loginpage")
+@given("Loginpage")
 def pn_lgnpag(context):
     context.app.main_page.open_page('login/canvas')
 
-@then('Input wrong email "{login}" into login')
+@then('Wrong login "{login}"')
 def wrng_lgn(context, login):
     context.app.main_page.wrong_login(login)
 
-@then('Input wrong password "{password}"')
+@then('Wrong password "{password}"')
 def wrng_psswrd(context, password):
     context.app.main_page.wrong_password(password)
 
