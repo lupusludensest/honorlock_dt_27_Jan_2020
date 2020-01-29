@@ -7,7 +7,7 @@ from behave import given, when, then
 
 @given("Loginpage")
 def pn_lgnpag(context):
-    context.app.main_page.open_page('login/canvas')
+    context.app.main_page.open_page( 'login/canvas' )
 
 @then('Wrong login "{login}"')
 def wrng_lgn(context, login):
@@ -21,6 +21,6 @@ def wrng_psswrd(context, password):
 def clck_logn_bttn(context):
     context.app.main_page.click_login_button()
 
-@then('Verify "{sign}" sign is here')
-def alrt_is_hr(context, sign):
-    context.app.main_page.alert_is_here(sign)
+@then('Verify Invalid username or password sign is here')
+def alrt_is_hr(context):
+    context.app.main_page.alert_is_here()

@@ -6,4 +6,4 @@ Feature: System rejects wrong login and password
     Then Wrong login "WrongPassword1234!@gmail.com"
     Then Wrong password "WrongPassword1234!"
     Then Click on login button
-    Then Verify "Invalid username or password" sign is here
+    Then Verify Invalid username or password sign is here
