@@ -21,6 +21,6 @@ def wrng_psswrd(context, password):
 def clck_logn_bttn(context):
     context.app.main_page.click_login_button()
 
-@then('Verify Invalid username or password sign is here')
+@then('Verify "Invalid username or password" sign is here')
 def alrt_is_hr(context):
     context.app.main_page.alert_is_here()
