@@ -10,6 +10,9 @@ class MainPage(Page):
     LOGIN_REJECTED = (By.CSS_SELECTOR, "li.ic-flash-error")
     FORGOT_PASSWORD_BTN = (By.ID, "login_forgot_password")
     FORGOT_PASSWORD_INSTR = (By.ID, "forgot_password_instructions")
+    FORGOT_EMAIL_FIELD = (By.CSS_SELECTOR, "input#pseudonym_session_unique_id_forgot.ic-Input.email_address.text")
+    RQST_PSWRD_BTN = (By.CSS_SELECTOR, "button.Button.Button--login")
+    PSSWRD_CNFRMTN_SNT = (By.XPATH, "//li[@class='ic-flash-success']")
 
 
     def wrong_login(self, text):
@@ -50,4 +53,22 @@ class MainPage(Page):
         assert "Enter your Email and we'll send you a link to change your password" in self.driver.find_element(*self.FORGOT_PASSWORD_INSTR).text
         print('\nSign is here: ','"' ,str(self.driver.find_element(*self.FORGOT_PASSWORD_INSTR).text),'"' ,'.')
 
+    def enter_email_for_restoring(self, text):
+        """
+        Input email "RestoreAccess@gmail.com" for restoring access
+        """
+        self.input_text(text, *self.FORGOT_EMAIL_FIELD)
 
+    def click_on_restore_psswrd_btn(self):
+        """
+        Click on Request Password button
+        """
+        self.driver.find_elements(*self.RQST_PSWRD_BTN)[-1].click()
+
+    def password_cnfrmtn_snt(self):
+        """
+        Verify "Password confirmation sent to RestoreAccess@gmail.com.Make sure you check your spam box." sign is here
+        """
+        assert "Password confirmation sent to RestoreAccess@gmail.com. Make sure you check your spam box." in self.driver.find_element(
+            *self.PSSWRD_CNFRMTN_SNT).text
+        print('\nSign is here: ', '"', str(self.driver.find_element(*self.PSSWRD_CNFRMTN_SNT).text), '"', '.')

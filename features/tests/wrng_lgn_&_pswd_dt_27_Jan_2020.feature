@@ -7,3 +7,4 @@ Feature: System rejects wrong login and password
     Then Wrong password "WrongPassword1234!"
     Then Click on login button
     Then Verify "Invalid username or password" sign is here
+

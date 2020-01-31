@@ -34,3 +34,18 @@ def click_forgot_password(context):
 @then('Verify "Enter your Email and we\'ll send you a link to change your password." sign is here')
 def forgot_password_inst(context):
     context.app.main_page.forgot_passw_instruct()
+
+
+@then('Input email "{email}" for restoring access')
+def step_impl(context, email):
+    context.app.main_page.enter_email_for_restoring(email)
+
+
+@then("Click on Request Password button")
+def click_rstr_psswrd_btn(context):
+    context.app.main_page.click_on_restore_psswrd_btn()
+
+
+@then('Verify "Password confirmation sent to RestoreAccess@gmail.com. Make sure you check your spam box." sign is here')
+def psswrd_cnfrmtn_snt(context):
+    context.app.main_page.password_cnfrmtn_snt()
